@@ -36,6 +36,13 @@ h1 {
     grid-template-rows: repeat(6, 1fr);
 }
 
-.cell{
+.cell {
     border: 1px dotted white;
+    display:flex;
+}
+
+.piece {
+    border-radius: 50%;
+    background-color: red;
+    flex-grow: 1;
 }
