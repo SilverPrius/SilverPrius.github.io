@@ -1,0 +1,41 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    background-image: url("./c4BackgroundImage.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin: 2vh;
+    font-size: 7.5vh;
+    font-family: serif;
+    color: khaki;
+}
+
+#board {
+    width: 70vmin;
+    height: 60vmin;
+    background-color: rgba(110, 124, 124, 0.174);
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.cell{
+    border: 1px dotted white;
+}
