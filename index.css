@@ -24,7 +24,7 @@ h1 {
     margin: 2vh;
     font-size: 7.5vh;
     font-family: serif;
-    color: khaki;
+    color: rgb(236, 177, 68);
 }
 
 #board {
@@ -43,11 +43,19 @@ h1 {
 
 .piece {
     border-radius: 50%;
-    background-color: red;
     flex-grow: 1;
 }
 
-/* raises the unplaced piece above the board!!(this is so cool) transform let's you modify the coordinate space of the CSS*/
+/* color of piece is determined by dataset of player */
+.piece[data-player="1"] {
+    background-color: red;
+}
+
+.piece[data-player="2"] {
+    background-color: rgb(236, 236, 26);
+}
+
+/* raises the unplaced piece (floater) above the board!!(this is so cool) transform let's you modify the coordinate space of the CSS*/
 .piece[data-placed="false"] {
     transform: translateY(-10vmin);
 }
