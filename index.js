@@ -16,7 +16,7 @@ const pieces = [
 ];
 
 let playerTurn = RED_TURN; // 1 - red, 2 - yellow
-let floaterColumn = -1;
+let floaterColumn = -1; //if there is no empty spot in the column that the mouse is hovered over, the floater piece will be invisible
 
 //cell class
 //creating 42 cell divs and appending them to the board
@@ -56,10 +56,29 @@ function onCloumnClicked(column) {
     piece.dataset.player = playerTurn;
     cell.appendChild(piece);
 
+
+    //get the distance in height between the floater piece and the piece placed at the bottom of the column
+    let unplacedPiece = document.querySelector("[data-placed='false']");
+    let unplacedY = unplacedPiece.getBoundingClientRect().y;
+    let placedY = piece.getBoundingClientRect().y;
+    let yDiff = unplacedY - placedY;
+
+    piece.animate(
+        [
+            { transform: `translateY(${yDiff}px)`, offset: 0 },
+            { transform: `translateY(0px)`, offset: 1 }
+        ],
+        {
+            duration: 400,
+            easing: "linear",
+            iterations: 1,
+        }
+    )
+
     //Switch to next player's turn after a piece has been dropped
-    if(playerTurn === RED_TURN) {
+    if (playerTurn === RED_TURN) {
         playerTurn = YELLOW_TURN;
-    }else{
+    } else {
         playerTurn = RED_TURN;
     }
 
@@ -67,21 +86,23 @@ function onCloumnClicked(column) {
     changeColorFloater();
 }
 
-    function changeColorFloater() {
-        //remove pieces from the board if they are unplaced
+function changeColorFloater() {
+    //remove pieces from the board if they are unplaced
     let unplacedPiece = document.querySelector("[data-placed='false']");
     if (unplacedPiece) {
         unplacedPiece.parentElement.removeChild(unplacedPiece)
     }
 
-    //function to create a piece and place it in the selected column in the board
-    let cell = board.children[floaterColumn];
-    let piece = document.createElement("div");
-    piece.className = "piece";
-    piece.dataset.placed = false;
-    piece.dataset.player = playerTurn;
-    cell.appendChild(piece);
+    //if there is an empty space in the column that is being hovered over, create a piece and show it hovering at the top of the board
+    if (pieces[floaterColumn] === 0) {
+        let cell = board.children[floaterColumn];
+        let piece = document.createElement("div");
+        piece.className = "piece";
+        piece.dataset.placed = false;
+        piece.dataset.player = playerTurn;
+        cell.appendChild(piece);
     }
+}
 
 
 //function for what happens when mouse is hovered over the board
