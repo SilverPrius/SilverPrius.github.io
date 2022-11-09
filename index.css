@@ -28,9 +28,9 @@ h1 {
 }
 
 #board {
+    padding-top: 10vmin;
     width: 70vmin;
     height: 60vmin;
-    background-color: rgba(110, 124, 124, 0.174);
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(6, 1fr);
@@ -45,4 +45,9 @@ h1 {
     border-radius: 50%;
     background-color: red;
     flex-grow: 1;
+}
+
+/* raises the unplaced piece above the board!!(this is so cool) transform let's you modify the coordinate space of the CSS*/
+.piece[data-placed="false"] {
+    transform: translateY(-10vmin);
 }

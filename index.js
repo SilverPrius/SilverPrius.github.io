@@ -8,27 +8,26 @@ for (let i = 0; i < 42; i++) {
     cell.className = "cell";
     board.appendChild(cell);
 
-    //function to name the cell that the mouse is hovered over to the number of which row it is in (0-6)
+    //function to call the cell number(i) and % by 7. The result will be a cell on the top row
     cell.onmouseenter = () => {
         onMouseEnteredColumn(i % 7);
     }
 }
 
-    
+//function for what happens when mouse is hovered over the board
 function onMouseEnteredColumn(column) {
-    //remove existing unplaced piece
-    let unplacedPiece = document.querySelector("[data-placed='false']");
-    if(unplacedPiece) {
-        unplacedPiece.parentElement.removeChild(unplacedPiece)
-    }
 
-
-
-    //function to create a piece and place it on the selected cell in the board
-    let cell = board.children [column];
+    //function to create a piece and place it in the selected column in the board
+    let cell = board.children[column];
     let piece = document.createElement("div");
     piece.className = "piece";
     piece.dataset.placed = false;
     cell.appendChild(piece);
+
+    //remove existing unplaced piece
+    let unplacedPiece = document.querySelector("[data-placed='false']");
+    if (unplacedPiece) {
+        unplacedPiece.parentElement.removeChild(unplacedPiece)
+    }
 }
 
