@@ -1,6 +1,12 @@
 //create a variable for #board in .js file
 const board = document.querySelector("#board");
 
+//reset button
+const resetButton = document.querySelector("#reset")
+resetButton.onclick = () => {
+    location.reload();
+}
+
 const RED_TURN = 1;
 const YELLOW_TURN = 2;
 
@@ -14,30 +20,6 @@ const pieces = [
     0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0,
 ];
-
-function hasPlayerWon(playerTurn, pieces) {
-    for (let index = 0; index < 42; index++) {
-        //check horizontal win starting at index
-        if (
-            index % 7 < 4 &&
-            pieces[index] === playerTurn &&
-            pieces[index + 1] === playerTurn &&
-            pieces[index + 2] === playerTurn &&
-            pieces[index + 3] === playerTurn
-        ) {
-            return true;
-        }
-
-
-        //check vertical win starting at index
-
-        //check diagonal win starting at index
-
-        //check diagonal (other side) win starting at index
-
-    }
-    return false;
-}
 
 let playerTurn = RED_TURN; // 1 - red, 2 - yellow
 let floaterColumn = -1; //if the column that the mouse is hovered over is full(no empty spaces left), the floater piece will disappear
@@ -116,15 +98,16 @@ function checkGameWinOrDraw() {
 
     //check if game is a draw
     if (!pieces.includes(0)) {
-        confirm("DRAW GAME!");
-        location.reload(); //reloads the page
+        //game is a draw
+        confirm("Draw Game!");
+        location.reload();
     }
 
     //check if current player has won
     if (hasPlayerWon(playerTurn, pieces)) {
         //current player has won
-            confirm(`${playerTurn === RED_TURN ? "Red" : "Yellow"} WON!`);
-            location.reload(); //reloads the page
+        confirm(`${playerTurn === RED_TURN ? "Red" : "Yellow"} WON!`);
+        location.reload();
     }
 
 
@@ -165,8 +148,55 @@ function removeUnplacedPiece() {
 function onMouseEnteredColumn(column) {
     floaterColumn = column;
     //don't change the color of the floater when an animation is happening
-    if(!animating) {
+    if (!animating) {
         changeColorFloater();
     }
 }
 
+function hasPlayerWon(playerTurn, pieces) {
+    for (let index = 0; index < 42; index++) {
+        //check horizontal win starting at index
+        if (
+            index % 7 < 4 &&
+            pieces[index] === playerTurn &&
+            pieces[index + 1] === playerTurn &&
+            pieces[index + 2] === playerTurn &&
+            pieces[index + 3] === playerTurn
+        ) {
+            return true;
+        }
+        //check vertical win starting at index
+        if (
+            index < 21 &&
+            pieces[index] === playerTurn &&
+            pieces[index + 7] === playerTurn &&
+            pieces[index + 14] === playerTurn &&
+            pieces[index + 21] === playerTurn
+        ) {
+            return true;
+        }
+        //check diagonal win starting at index
+        if (
+            index % 7 < 4 &&
+            index < 18 &&
+            pieces[index] === playerTurn &&
+            pieces[index + 8] === playerTurn &&
+            pieces[index + 16] === playerTurn &&
+            pieces[index + 24] === playerTurn
+        ) {
+            return true;
+        }
+        //check diagonal (other side) win starting at index
+        if (
+            index % 7 > 2 &&
+            index < 21 &&
+            pieces[index] === playerTurn &&
+            pieces[index + 6] === playerTurn &&
+            pieces[index + 12] === playerTurn &&
+            pieces[index + 18] === playerTurn
+        ) {
+            return true;
+        }
+    }
+    return false;
+}

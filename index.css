@@ -3,15 +3,16 @@
 *::before {
     margin: 0;
     padding: 0;
+    font-family: serif;
 }
 
 
 html {
     background-image: url("./c4BackgroundImage.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100vw;
-    height: 100vh;
+    background-size:contain;
+    background-repeat: none;
+    width: 100%;
+    height: 100%;
 }
 
 body {
@@ -20,12 +21,7 @@ body {
     align-items: center;
 }
 
-h1 {
-    margin: 2vh;
-    font-size: 7.5vh;
-    font-family: serif;
-    color: rgb(236, 177, 68);
-}
+
 
 #board {
     padding-top: 10vmin;
@@ -58,4 +54,25 @@ h1 {
 /* raises the unplaced piece (floater) above the board!!(this is so cool) transform let's you modify the coordinate space of the CSS*/
 .piece[data-placed="false"] {
     transform: translateY(-10vmin);
+}
+
+h1 {
+    margin: 2vh;
+    font-size: 7.5vh;
+    color: rgb(236, 177, 68);
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#reset {
+   color: beige;
+   font-size: 3vh;
+   margin: 2.5vmin;
+   padding: 2.5vmin;
+   background-color: coral;
+   border-style:groove;
+   border-color: black;
+
 }
