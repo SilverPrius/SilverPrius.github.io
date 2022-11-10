@@ -164,7 +164,9 @@ function removeUnplacedPiece() {
 //function for what happens when mouse is hovered over the board
 function onMouseEnteredColumn(column) {
     floaterColumn = column;
-    changeColorFloater();
-
+    //don't change the color of the floater when an animation is happening
+    if(!animating) {
+        changeColorFloater();
+    }
 }
 
