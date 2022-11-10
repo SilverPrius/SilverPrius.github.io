@@ -15,8 +15,34 @@ const pieces = [
     0, 0, 0, 0, 0, 0, 0,
 ];
 
+function hasPlayerWon(playerTurn, pieces) {
+    for (let index = 0; index < 42; index++) {
+        //check horizontal win starting at index
+        if (
+            index % 7 < 4 &&
+            pieces[index] === playerTurn &&
+            pieces[index + 1] === playerTurn &&
+            pieces[index + 2] === playerTurn &&
+            pieces[index + 3] === playerTurn
+        ) {
+            return true;
+        }
+
+
+        //check vertical win starting at index
+
+        //check diagonal win starting at index
+
+        //check diagonal (other side) win starting at index
+
+    }
+    return false;
+}
+
 let playerTurn = RED_TURN; // 1 - red, 2 - yellow
-let floaterColumn = -1; //if there is no empty spot in the column that the mouse is hovered over, the floater piece will be invisible
+let floaterColumn = -1; //if the column that the mouse is hovered over is full(no empty spaces left), the floater piece will disappear
+
+let animating = false
 
 //cell class
 //creating 42 cell divs and appending them to the board
@@ -31,13 +57,15 @@ for (let i = 0; i < 42; i++) {
     }
 
     cell.onclick = () => {
-        onCloumnClicked(i % 7)
+        if (!animating) {
+            onCloumnClicked(i % 7)
+        }
     }
 }
 
 // We want a new array with just the indexes of the specific column that is clicked.
 // The cell number clicked will be % 7 and the result will be the column that it is in.
-// The method .lastIndexOf(0) gives us the last index that is empty which the most bottom cell of the column. This is where the piece will land.
+// The method .lastIndexOf(0) gives us the last index that is empty which will be the most bottom cell of the column. This is where the piece will land.
 function onCloumnClicked(column) {
     let availableRow = pieces.filter((_, index) => index % 7 === column).lastIndexOf(0);
     //if there is no empty space in that column, do nothing (the method .lastIndexOf(0) returns -1 if no zeros are found)
@@ -63,17 +91,42 @@ function onCloumnClicked(column) {
     let placedY = piece.getBoundingClientRect().y;
     let yDiff = unplacedY - placedY;
 
-    piece.animate(
+    animating = true;
+    removeUnplacedPiece(); //when animation is running, make the floater piece disappear and unable to make another move
+    let animation = piece.animate(
         [
             { transform: `translateY(${yDiff}px)`, offset: 0 },
-            { transform: `translateY(0px)`, offset: 1 }
+            { transform: `translateY(0px)`, offset: 0.6 },
+            { transform: `translateY(${yDiff / 20}px)`, offset: 0.8 },
+            { transform: `translateY(0px)`, offset: 0.95 }
         ],
         {
-            duration: 400,
+            duration: 550,
             easing: "linear",
             iterations: 1,
         }
     )
+
+    //When the animation finishes, check if game is over
+    animation.addEventListener('finish', checkGameWinOrDraw)
+}
+
+function checkGameWinOrDraw() {
+    animating = false;
+
+    //check if game is a draw
+    if (!pieces.includes(0)) {
+        confirm("DRAW GAME!");
+        location.reload(); //reloads the page
+    }
+
+    //check if current player has won
+    if (hasPlayerWon(playerTurn, pieces)) {
+        //current player has won
+            confirm(`${playerTurn === RED_TURN ? "Red" : "Yellow"} WON!`);
+            location.reload(); //reloads the page
+    }
+
 
     //Switch to next player's turn after a piece has been dropped
     if (playerTurn === RED_TURN) {
@@ -87,11 +140,7 @@ function onCloumnClicked(column) {
 }
 
 function changeColorFloater() {
-    //remove pieces from the board if they are unplaced
-    let unplacedPiece = document.querySelector("[data-placed='false']");
-    if (unplacedPiece) {
-        unplacedPiece.parentElement.removeChild(unplacedPiece)
-    }
+    removeUnplacedPiece();
 
     //if there is an empty space in the column that is being hovered over, create a piece and show it hovering at the top of the board
     if (pieces[floaterColumn] === 0) {
@@ -101,6 +150,13 @@ function changeColorFloater() {
         piece.dataset.placed = false;
         piece.dataset.player = playerTurn;
         cell.appendChild(piece);
+    }
+}
+
+function removeUnplacedPiece() {
+    let unplacedPiece = document.querySelector("[data-placed='false']");
+    if (unplacedPiece) {
+        unplacedPiece.parentElement.removeChild(unplacedPiece)
     }
 }
 
