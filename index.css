@@ -1,16 +1,14 @@
-*,
-*::after,
-*::before {
+* {
     margin: 0;
     padding: 0;
     font-family: serif;
 }
 
-
 html {
-    background-image: url("./c4BackgroundImage.jpg");
+    /* background-image: url("./c4BackgroundImage.jpg"); */
+    background-image: linear-gradient(to bottom, rgb(4, 69, 139) 75vh, rgb(160, 154, 92), rgb(228,85,29));
     background-size:contain;
-    background-repeat: none;
+    background-repeat:repeat;
     width: 100%;
     height: 100%;
 }
@@ -20,8 +18,6 @@ body {
     flex-direction: column;
     align-items: center;
 }
-
-
 
 #board {
     padding-top: 10vmin;
@@ -33,13 +29,14 @@ body {
 }
 
 .cell {
-    border: 1px dotted white;
+    border: 1px solid white;
     display:flex;
 }
 
 .piece {
     border-radius: 50%;
     flex-grow: 1;
+    
 }
 
 /* color of piece is determined by dataset of player */
@@ -51,9 +48,9 @@ body {
     background-color: rgb(236, 236, 26);
 }
 
-/* raises the unplaced piece (floater) above the board!!(this is so cool) transform let's you modify the coordinate space of the CSS*/
+/* raises the unplaced piece (floater) above the board */
 .piece[data-placed="false"] {
-    transform: translateY(-10vmin);
+    transform: translateY(-10.5vmin);
 }
 
 h1 {
@@ -66,13 +63,27 @@ h1 {
     flex-direction: row;
 }
 
+#reset-button {
+   display: flex;
+   justify-content:center; 
+}
+
 #reset {
-   color: beige;
+   color: rgb(54, 45, 45);
    font-size: 3vh;
    margin: 2.5vmin;
    padding: 2.5vmin;
    background-color: coral;
    border-style:groove;
-   border-color: black;
+   border-color: rgb(21, 12, 12);
+   border-width: medium;
+   
+}
 
+#reset:hover{
+    color: beige;
+}
+
+#reset:active {
+    box-shadow: 10px 10px 10px rgb(25, 20, 20);
 }
