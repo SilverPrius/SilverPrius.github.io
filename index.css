@@ -4,11 +4,21 @@
     font-family: serif;
 }
 
+h1 {
+    margin: 2vh;
+    font-size: 7.5vh;
+    color: rgb(236, 177, 68);
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    flex-direction: row;
+}
+
 html {
     /* background-image: url("./c4BackgroundImage.jpg"); */
-    background-image: linear-gradient(to bottom, rgb(4, 69, 139) 75vh, rgb(160, 154, 92), rgb(228,85,29));
-    background-size:contain;
-    background-repeat:repeat;
+    background-image: linear-gradient(to bottom, rgb(4, 69, 139) 75vh, rgb(160, 154, 92), rgb(228, 85, 29));
+    background-size: contain;
+    background-repeat: repeat;
     width: 100%;
     height: 100%;
 }
@@ -30,13 +40,13 @@ body {
 
 .cell {
     border: 1px solid white;
-    display:flex;
+    display: flex;
 }
 
 .piece {
     border-radius: 50%;
     flex-grow: 1;
-    
+
 }
 
 /* color of piece is determined by dataset of player */
@@ -53,34 +63,31 @@ body {
     transform: translateY(-10.5vmin);
 }
 
-h1 {
-    margin: 2vh;
-    font-size: 7.5vh;
-    color: rgb(236, 177, 68);
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    flex-direction: row;
+/* changes the winnig 4 pieces into squares */
+.piece[data-winner="true"] {
+    border-radius: 0%;
+    /* background-color: greenyellow; */
 }
 
+
 #reset-button {
-   display: flex;
-   justify-content:center; 
+    display: flex;
+    justify-content: center;
 }
 
 #reset {
-   color: rgb(54, 45, 45);
-   font-size: 3vh;
-   margin: 2.5vmin;
-   padding: 2.5vmin;
-   background-color: coral;
-   border-style:groove;
-   border-color: rgb(21, 12, 12);
-   border-width: medium;
-   
+    color: rgb(54, 45, 45);
+    font-size: 3vh;
+    margin: 2.5vmin;
+    padding: 2.5vmin;
+    background-color: coral;
+    border-style: groove;
+    border-color: rgb(21, 12, 12);
+    border-width: medium;
+
 }
 
-#reset:hover{
+#reset:hover {
     color: beige;
 }
 
