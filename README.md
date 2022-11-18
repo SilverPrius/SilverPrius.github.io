@@ -2,6 +2,7 @@
 
 This game was my first project in my Software Engineering program at Per Scholas. 
 More information about the game: https://en.wikipedia.org/wiki/Connect_Four
+Try it out! [Live site](https://silverprius.github.io)
 
 ## Game Functions: 
 
