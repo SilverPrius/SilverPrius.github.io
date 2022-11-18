@@ -1,3 +1,5 @@
+#Connect Four / Project 1
+
 This game was my first project in my Software Engineering program at Per Scholas. More information about the game: https://en.wikipedia.org/wiki/Connect_Four
 
 Game Functions: 
