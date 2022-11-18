@@ -112,7 +112,7 @@ function checkGameWinOrDraw() {
     //check if current player has won
     if (hasPlayerWon(playerTurn, pieces)) {
         //current player has won
-        alert(`${playerTurn === RED_TURN ? "Red" : "Yellow"} WON!`);
+        alert(`${playerTurn === RED_TURN ? "RED" : "YELLOW"} Wins!`);
         gameOver = true;
         // removeUnplacedPiece();
         // location.reload();
