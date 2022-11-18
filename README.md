@@ -24,11 +24,13 @@ Clicking the Reset button will reload the webpage. This will clear all the piece
 
 The first step was to design the board. I started off by creating a div for the board. I used display:grid to design the board to have 7 columns and 6 rows. Next, I used a for loop to create 42 divs to represent the cells inside of the board div. Lastly, I styled each cell to have a white border.
 
-To keep track of what pieces are on the board, I used an array that was updated after every round. Each zero represents an empty cell on the board at the beginning of the game. The first zero in the array represents the zero index grid and so forth. As the game progresses, the zeros will be updated to a 1 for a red piece and a 2 for yellow.
+To keep track of what pieces are on the board, I used an array that was updated after every round. Each zero represents an empty cell on the board at the beginning of the game. The first zero in the array represents the first cell at the top right of the index grid and so forth. As the game progresses, the zeros will be updated to a 1 for a red piece and a 2 for yellow.
+
+![arrayGridBoard](https://user-images.githubusercontent.com/100508022/202620688-8f5920ab-3e45-42c8-89ac-00f24c7dc3e9.png)
 
 To determine a winner, there is a hasPlayerWon function with an algorithim to check the array to see if there are any 4 1's or 2's in the correct positions to represent a winning 4 in a row on the board.
 
-After getting all of the game functions comlpeted, the most challenging part of the project was that I wanted to add a feature to make the 4 winning pieces distinct from the others. It took a long time to figure out, but I did this by using the .children and .firstChild methods to get the indexes of the winning pieces, then I set a dataset attribute to those elements and used CSS to style those pieces into squares. 
+After getting all of the game functions completed, the most challenging part of the project was that I wanted to add a feature to make the 4 winning pieces distinct from the others. It took a long time to figure out, but I did this by using the .children and .firstChild methods to get the indexes of the winning pieces, then I set a dataset attribute to those elements and used CSS to style those pieces into squares. 
 
 ## Features preview:
 
