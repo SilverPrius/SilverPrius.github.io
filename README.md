@@ -1,10 +1,8 @@
 # Connect Four / Project 1
 
-This game was my first project in my Software Engineering program at Per Scholas.
-
-More information about the game: https://en.wikipedia.org/wiki/Connect_Four
-
-Try it out! [Live site](https://silverprius.github.io)
+This game was my first project in my Software Engineering program at Per Scholas.  
+Try it out! [Live site](https://silverprius.github.io)  
+More information about the game: https://en.wikipedia.org/wiki/Connect_Four  
 
 ## Game Functions: 
 
@@ -55,7 +53,7 @@ The 4 winning pieces will turn into squares; so that they can be easily identifi
 
 ![winnerSquares](https://user-images.githubusercontent.com/100508022/202604744-4c051930-0031-4701-a65a-3d9307ebe887.png)
 
-## Built with:
+## Technologies used:
 
 HTML, CSS, Javascript
 
@@ -67,3 +65,9 @@ HTML, CSS, Javascript
 - Tishana Trainor  
 - Richard Harris  
 - Cody Jennings  
+
+## Options to access this repo:
+
+1. Open Git Bash and run this in your terminal: git clone https://github.com/SilverPrius/SilverPrius.github.io.git
+2. Run index.html file from browse
+3. Try it out via the [Live site](https://silverprius.github.io)
