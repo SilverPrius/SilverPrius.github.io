@@ -176,8 +176,6 @@ function hasPlayerWon(playerTurn, pieces) {
             board.children[index + 1].firstChild.dataset.winner = true
             board.children[index + 2].firstChild.dataset.winner = true
             board.children[index + 3].firstChild.dataset.winner = true
-            console.log(board.children[index + 3].firstChild)
-            playerTurn === null
             return true;
         }
 
@@ -193,7 +191,6 @@ function hasPlayerWon(playerTurn, pieces) {
             board.children[index + 7].firstChild.dataset.winner = true
             board.children[index + 14].firstChild.dataset.winner = true
             board.children[index + 21].firstChild.dataset.winner = true
-            playerTurn === null
             return true;
         }
 

@@ -1,6 +1,7 @@
 # Connect Four / Project 1
 
-This game was my first project in my Software Engineering program at Per Scholas. More information about the game: https://en.wikipedia.org/wiki/Connect_Four
+This game was my first project in my Software Engineering program at Per Scholas. 
+More information about the game: https://en.wikipedia.org/wiki/Connect_Four
 
 ## Game Functions: 
 
@@ -18,7 +19,18 @@ If the board is completely filled up without a winner, the game is a draw!
 
 Clicking the Reset button will reload the webpage. This will clear all the pieces from the board, and restart the game.
 
-## Features previews:
+
+## How I built this game:
+
+The first step was to design the board. I started off by creating a div for the board. I used display:grid to design the board to have 7 columns and 6 rows. Next, I used a for loop to create 42 divs to represent the cells inside of the board div. And lastly, I styled each cell to have a white border.
+
+To keep track of what pieces are on the board, I used an array that was always updated after every round. Each zero represents an empty cell on the board at the beginning of the game. As the game progresses, the zeros will be updated to a 1 for a red piece and a 2 for yellow.
+
+
+
+
+
+## Features preview:
 
 A falling animation will play when a piece is dropped
 
