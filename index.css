@@ -15,7 +15,6 @@ h1 {
 }
 
 html {
-    /* background-image: url("./c4BackgroundImage.jpg"); */
     background-image: linear-gradient(to bottom, rgb(4, 69, 139) 75vh, rgb(160, 154, 92), rgb(228, 85, 29));
     background-size: contain;
     background-repeat: repeat;
@@ -66,7 +65,6 @@ body {
 /* changes the winnig 4 pieces into squares */
 .piece[data-winner="true"] {
     border-radius: 0%;
-    /* background-color: greenyellow; */
 }
 
 

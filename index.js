@@ -81,10 +81,8 @@ function onCloumnClicked(column) {
         removeUnplacedPiece(); //when animation is running, make the floater piece disappear and unable to make another move
         let animation = piece.animate(
             [
-                { transform: `translateY(${yDiff}px)`, offset: 0 },
-                { transform: `translateY(0px)`, offset: 0.6 },
-                { transform: `translateY(${yDiff / 20}px)`, offset: 0.8 },
-                { transform: `translateY(0px)`, offset: 0.95 }
+                { transform: `translateY(${yDiff}px)`, offset: 0 }, // if this number is less than zero, there is a bounceing animation
+                { transform: `translateY(0px)`, offset: 0.6 }, //determined speed of drop
             ],
             {
                 duration: 550,
