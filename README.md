@@ -1,6 +1,6 @@
 # Connect Four / Project 1
 
-This game was my first project in my Software Engineering program at Per Scholas.  
+This game was the first project in my Software Engineering program at Per Scholas.  
 Try it out! [Live site](https://silverprius.github.io)  
 More information about the game: https://en.wikipedia.org/wiki/Connect_Four  
 
