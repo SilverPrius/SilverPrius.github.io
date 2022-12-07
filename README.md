@@ -69,5 +69,5 @@ HTML, CSS, Javascript
 ## Options to access this repo:
 
 1. Open Git Bash and run this in your terminal: git clone https://github.com/SilverPrius/SilverPrius.github.io.git
-2. Run index.html file from browse
+2. Run index.html file from your browser
 3. Try it out via the [Live site](https://silverprius.github.io)
