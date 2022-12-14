@@ -59,7 +59,7 @@ body {
 
 /* raises the unplaced piece (floater) above the board */
 .piece[data-placed="false"] {
-    transform: translateY(-16.5vmin);
+    transform: translateY(-10.5vmin);
 }
 
 /* changes the winnig 4 pieces into squares */
